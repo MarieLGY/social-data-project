@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>Assignment B</title>
+	  <link rel="shortcut icon" href="http://tanphi.github.io/icon.png">
+          <script type="text/javascript" src="../tanphi.github.io/d3/d3.js"></script>
+	  <link rel="stylesheet" href="index.css"/>
+	  <style type="text/css">
+	  
+			
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+
+		</style>
+  </head>
+  <body>
+	
+	<h2 id = "subtitle">Evolution of the hourly demand over the week</h2>
+	<p id="text2C"> This chart presents how many pick-ups have been recorded, hour per hour, for each day of the week. The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people are going to work. Then, in the evening after 5pm, the demand is really high, before gettinf low again when everybody goes to bed. This is why we can really distinguish the week-ends: on friday and saturday nights, the number of pick-ups is still really high bacause people are going out and might not have public transportation to go home when it's late. Moreover, on saturday and sunday morning the affluence is lower than usual, because few people are working while many are probably sleeping late. </p>
+	</br></br>
+
+		<script type="text/javascript">
+		
+		//Width and height
+			var w = 800;
+			var h = 380;
+			var padding = 60;
+			
+			
+			//read a file, here for our local dataset
+			function readTextFile(file)
+			{
+				var rawFile = new XMLHttpRequest();
+				rawFile.open("GET", file, false);
+				rawFile.onreadystatechange = function ()
+				{
+					if(rawFile.readyState === 4)
+					{
+						if(rawFile.status === 200 || rawFile.status == 0)
+						{
+							var allText = rawFile.responseText;
+						}
+					}
+				}
+				rawFile.send(null);
+				return rawFile.responseText;
+			};
+			
+			var dataset2G = JSON.parse(readTextFile("Weekdays.json"));
+							
+			var dataset2 = dataset2G.MONDAY;
+			
+			var xScale2 = d3.scale.ordinal()
+							.domain(d3.range(dataset2.length))
+							.rangeRoundBands([padding, w - padding], 0.05);
+							
+							
+			var yScale2 = d3.scale.linear()
+							.domain([0, d3.max(dataset2, function(d) { return d.nPickUp; })])
+							.range([padding,h - padding]);
+										
+			//Define X axis
+			var xAxis2 = d3.svg.axis()
+							  .scale(xScale2)
+							  .orient("bottom");
+							  
+		
+			//Create SVG element
+			var svg2 = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+						
+			//Create X axis
+			svg2.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(0," + (h - padding) + ")")
+				.call(xAxis2);
+
+				   
+			
+			//Define key function, to be used when binding data
+			var hour = function(d) {
+				return d.hour;
+			};
+			
+			//Create bars
+			svg2.selectAll("rect")
+			   .data(dataset2, hour)
+			   .enter()
+			   .append("rect")
+			   .attr("x", function(d, i) {
+			   		return xScale2(i);
+			   })
+			   .attr("y", function(d) {
+			   		return h - yScale2(d.nPickUp) - padding;
+			   })
+			   .attr("width", xScale2.rangeBand())
+			   .attr("height", function(d) {
+			   		return yScale2(d.nPickUp);
+			   })
+			   .attr("fill", function(d) {
+					return "rgb(0, 0, " + Math.round(yScale2(d.nPickUp)) + ")";
+			   });
+			//Create labels
+			svg2.selectAll("text")
+			   .data(dataset2, hour)
+			   .enter()
+			   .append("text")
+			   .text(function(d) {
+			   		return d.nPickUp;
+			   })
+			   .attr("text-anchor", "middle")
+			   .attr("x", function(d, i) {
+			   		return xScale2(i) + xScale2.rangeBand() / 2;
+			   })
+			   .attr("y", function(d) {
+			   		return h - padding - yScale2(d.nPickUp) + 14;
+			   })
+			   .attr("font-family", "sans-serif")
+			   .attr("font-size", "11px")
+			   .attr("fill", "white");
+			   
+			   
+			  
+			//Update the rect and the texts	
+			function Update2(){
+					//Update scale domains
+					yScale2.domain([0, d3.max(dataset2, function(d) { return d.nPickUp; })]);
+					
+					//xAxis2 = d3.svg.axis().scale(xScale2);
+					//Select…
+					var bars = svg2.selectAll("rect")
+						.data(dataset2, hour);
+					
+					//Enter…
+					bars.enter()
+						.append("rect")
+						.attr("x",w)
+						.attr("y", function(d) {
+							return h - yScale2(d.nPickUp) -  padding;
+						})
+						.attr("width", xScale2.rangeBand())
+						.attr("height", function(d) {
+							return yScale2(d.nPickUp);
+						})
+						.attr("fill", function(d) {
+							return "rgb(0, 0, " + (d.nPickUp * 10) + ")";
+						});
+					//Update…
+					bars.transition()
+						.duration(500)
+						.attr("x", function(d, i) {
+							return xScale2(i);
+						})
+						.attr("y", function(d) {
+							return h - yScale2(d.nPickUp) -  padding;
+						})
+						.attr("width", xScale2.rangeBand())
+						.attr("height", function(d) {
+							return yScale2(d.nPickUp);
+						})
+						.attr("fill", function(d) {
+							return "rgb(0, 0, " + yScale2(d.nPickUp) + ")";
+					   });
+					//Exit…
+					bars.exit()
+						.transition()
+						.duration(500)
+						.attr("x", -xScale2.rangeBand())
+						.remove();
+					
+					
+					//Update all labels
+					var texts = svg2.selectAll("text")
+						.data(dataset2, hour);
+					
+					//Enter…
+					texts.enter()
+						.append("text")
+						.text(function(d) {
+					   		return d.nPickUp;
+					   })
+					   .attr("text-anchor", "middle")
+					   .attr("x", function(d, i) {
+							return w ;
+					   })
+					   .attr("y", function(d) {
+							return h - yScale2(d.nPickUp) - padding ;
+					   })
+					   .attr("font-family", "sans-serif")
+					   .attr("font-size", "11px")
+					   .attr("fill", "white");
+					//Update…
+					texts.transition()
+						.duration(500)
+						.attr("x", function(d, i) {
+							return xScale2(i)  + xScale2.rangeBand() /2;
+						})
+						.attr("y", function(d) {
+							return h - yScale2(d.nPickUp) + 14 - padding;
+						});
+					//Exit…
+					texts.exit()
+						//.transition()
+						//.duration(500)
+						.attr("x", -xScale2.rangeBand())
+						.remove();
+						
+					//Update all labels
+					var texts = svg2.selectAll("text")
+						.data(dataset2, hour);
+					
+					//Enter…
+					texts.enter()
+						.append("text")
+						.text(function(d) {
+					   		return d.nPickUp;
+					   })
+					   .attr("text-anchor", "middle")
+					   .attr("x", function(d, i) {
+							return w ;
+					   })
+					   .attr("y", function(d) {
+							return h - yScale2(d.nPickUp) - padding ;
+					   })
+					   .attr("font-family", "sans-serif")
+					   .attr("font-size", "11px")
+					   .attr("fill", "white");
+					//Update…
+					texts.transition()
+						.duration(500)
+						.text(function(d) {
+					   		return d.nPickUp;
+						})
+						.attr("x", function(d, i) {
+							return xScale2(i)  + xScale2.rangeBand() /2;
+						})
+						.attr("y", function(d) {
+							return h - yScale2(d.nPickUp) + 14 - padding;
+						});
+					//Exit…
+					texts.exit()
+						//.transition()
+						//.duration(500)
+						.attr("x", -xScale2.rangeBand())
+						.remove();
+						
+					svg2.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(0," + (h - padding) + ")")
+				.call(xAxis2);
+				};
+		
+			function choice(typeForm){
+				var i = typeForm.box1.selectedIndex;
+				switch(i){
+				case 0:
+					dataset2 = dataset2G.MONDAY;
+					break;
+				case 1:
+					dataset2 = dataset2G.TUESDAY;
+					break;
+				case 2:
+					dataset2 = dataset2G.WENESDAY;
+					break;
+				case 3:
+					dataset2 = dataset2G.THURSDAY;
+					break;
+				case 4:
+					dataset2 = dataset2G.FRIDAY;
+					break;
+				case 5:
+					dataset2 = dataset2G.SATURDAY;
+					break;
+				case 6:
+					dataset2 = dataset2G.SUNDAY;
+					break;
+				}
+				
+				Update2();
+			}
+		
+		</script>
+		<p></p>
+		<div align="center">
+			<form name="typeForm">
+			<select name="box1" onChange="choice(this.form)">
+			<option selected>MONDAY</option>
+			<option >TUESDAY</option>
+			<option>WENESDAY</option>
+			<option >THURSDAY</option>
+			<option>FRIDAY</option>
+			<option>SATURDAY</option>
+			<option>SUNDAY</option>
+			</select>
+			</form>
+		</div>
+		
+
+  </body>
+</html>

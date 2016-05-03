@@ -1,0 +1,697 @@
+{"MONDAY":
+[
+  {
+    "hour": 0,
+    "nPickUp": 2794
+  },
+  {
+    "hour": 1,
+    "nPickUp": 1784
+  },
+  {
+    "hour": 2,
+    "nPickUp": 1065
+  },
+  {
+    "hour": 3,
+    "nPickUp": 769
+  },
+  {
+    "hour": 4,
+    "nPickUp": 794
+  },
+  {
+    "hour": 5,
+    "nPickUp": 1124
+  },
+  {
+    "hour": 6,
+    "nPickUp": 2877
+  },
+  {
+    "hour": 7,
+    "nPickUp": 5007
+  },
+  {
+    "hour": 8,
+    "nPickUp": 6103
+  },
+  {
+    "hour": 9,
+    "nPickUp": 6073
+  },
+  {
+    "hour": 10,
+    "nPickUp": 5204
+  },
+  {
+    "hour": 11,
+    "nPickUp": 5235
+  },
+  {
+    "hour": 12,
+    "nPickUp": 5496
+  },
+  {
+    "hour": 13,
+    "nPickUp": 5337
+  },
+  {
+    "hour": 14,
+    "nPickUp": 5729
+  },
+  {
+    "hour": 15,
+    "nPickUp": 5617
+  },
+  {
+    "hour": 16,
+    "nPickUp": 4871
+  },
+  {
+    "hour": 17,
+    "nPickUp": 6083
+  },
+  {
+    "hour": 18,
+    "nPickUp": 7352
+  },
+  {
+    "hour": 19,
+    "nPickUp": 7360
+  },
+  {
+    "hour": 20,
+    "nPickUp": 6759
+  },
+  {
+    "hour": 21,
+    "nPickUp": 6298
+  },
+  {
+    "hour": 22,
+    "nPickUp": 5600
+  },
+  {
+    "hour": 23,
+    "nPickUp": 4308
+  }
+]
+
+,"TUESDAY":
+[
+  {
+    "hour": 0,
+    "nPickUp": 2939
+  },
+  {
+    "hour": 1,
+    "nPickUp": 1907
+  },
+  {
+    "hour": 2,
+    "nPickUp": 1194
+  },
+  {
+    "hour": 3,
+    "nPickUp": 801
+  },
+  {
+    "hour": 4,
+    "nPickUp": 751
+  },
+  {
+    "hour": 5,
+    "nPickUp": 1151
+  },
+  {
+    "hour": 6,
+    "nPickUp": 3079
+  },
+  {
+    "hour": 7,
+    "nPickUp": 5518
+  },
+  {
+    "hour": 8,
+    "nPickUp": 6713
+  },
+  {
+    "hour": 9,
+    "nPickUp": 6440
+  },
+  {
+    "hour": 10,
+    "nPickUp": 5646
+  },
+  {
+    "hour": 11,
+    "nPickUp": 5775
+  },
+  {
+    "hour": 12,
+    "nPickUp": 5999
+  },
+  {
+    "hour": 13,
+    "nPickUp": 5919
+  },
+  {
+    "hour": 14,
+    "nPickUp": 6162
+  },
+  {
+    "hour": 15,
+    "nPickUp": 6010
+  },
+  {
+    "hour": 16,
+    "nPickUp": 4776
+  },
+  {
+    "hour": 17,
+    "nPickUp": 6191
+  },
+  {
+    "hour": 18,
+    "nPickUp": 7800
+  },
+  {
+    "hour": 19,
+    "nPickUp": 8036
+  },
+  {
+    "hour": 20,
+    "nPickUp": 7651
+  },
+  {
+    "hour": 21,
+    "nPickUp": 7628
+  },
+  {
+    "hour": 22,
+    "nPickUp": 6980
+  },
+  {
+    "hour": 23,
+    "nPickUp": 5548
+  }
+]
+,"WENESDAY":
+[
+  {
+    "hour": 0,
+    "nPickUp": 3565
+  },
+  {
+    "hour": 1,
+    "nPickUp": 2111
+  },
+  {
+    "hour": 2,
+    "nPickUp": 1345
+  },
+  {
+    "hour": 3,
+    "nPickUp": 869
+  },
+  {
+    "hour": 4,
+    "nPickUp": 786
+  },
+  {
+    "hour": 5,
+    "nPickUp": 1101
+  },
+  {
+    "hour": 6,
+    "nPickUp": 3071
+  },
+  {
+    "hour": 7,
+    "nPickUp": 5794
+  },
+  {
+    "hour": 8,
+    "nPickUp": 6831
+  },
+  {
+    "hour": 9,
+    "nPickUp": 6638
+  },
+  {
+    "hour": 10,
+    "nPickUp": 5929
+  },
+  {
+    "hour": 11,
+    "nPickUp": 5766
+  },
+  {
+    "hour": 12,
+    "nPickUp": 6107
+  },
+  {
+    "hour": 13,
+    "nPickUp": 6028
+  },
+  {
+    "hour": 14,
+    "nPickUp": 5986
+  },
+  {
+    "hour": 15,
+    "nPickUp": 5718
+  },
+  {
+    "hour": 16,
+    "nPickUp": 4609
+  },
+  {
+    "hour": 17,
+    "nPickUp": 5899
+  },
+  {
+    "hour": 18,
+    "nPickUp": 7550
+  },
+  {
+    "hour": 19,
+    "nPickUp": 8050
+  },
+  {
+    "hour": 20,
+    "nPickUp": 7734
+  },
+  {
+    "hour": 21,
+    "nPickUp": 7576
+  },
+  {
+    "hour": 22,
+    "nPickUp": 7322
+  },
+  {
+    "hour": 23,
+    "nPickUp": 5853
+  }
+]
+
+,"THURSDAY":
+[
+  {
+    "hour": 0,
+    "nPickUp": 4192
+  },
+  {
+    "hour": 1,
+    "nPickUp": 2438
+  },
+  {
+    "hour": 2,
+    "nPickUp": 1609
+  },
+  {
+    "hour": 3,
+    "nPickUp": 1034
+  },
+  {
+    "hour": 4,
+    "nPickUp": 889
+  },
+  {
+    "hour": 5,
+    "nPickUp": 1180
+  },
+  {
+    "hour": 6,
+    "nPickUp": 3086
+  },
+  {
+    "hour": 7,
+    "nPickUp": 5737
+  },
+  {
+    "hour": 8,
+    "nPickUp": 6707
+  },
+  {
+    "hour": 9,
+    "nPickUp": 6553
+  },
+  {
+    "hour": 10,
+    "nPickUp": 5787
+  },
+  {
+    "hour": 11,
+    "nPickUp": 5794
+  },
+  {
+    "hour": 12,
+    "nPickUp": 5956
+  },
+  {
+    "hour": 13,
+    "nPickUp": 5685
+  },
+  {
+    "hour": 14,
+    "nPickUp": 6241
+  },
+  {
+    "hour": 15,
+    "nPickUp": 5762
+  },
+  {
+    "hour": 16,
+    "nPickUp": 4531
+  },
+  {
+    "hour": 17,
+    "nPickUp": 5776
+  },
+  {
+    "hour": 18,
+    "nPickUp": 7431
+  },
+  {
+    "hour": 19,
+    "nPickUp": 8098
+  },
+  {
+    "hour": 20,
+    "nPickUp": 8126
+  },
+  {
+    "hour": 21,
+    "nPickUp": 7815
+  },
+  {
+    "hour": 22,
+    "nPickUp": 7744
+  },
+  {
+    "hour": 23,
+    "nPickUp": 6840
+  }
+]
+,"FRIDAY":
+[
+  {
+    "hour": 0,
+    "nPickUp": 5578
+  },
+  {
+    "hour": 1,
+    "nPickUp": 3524
+  },
+  {
+    "hour": 2,
+    "nPickUp": 2428
+  },
+  {
+    "hour": 3,
+    "nPickUp": 1616
+  },
+  {
+    "hour": 4,
+    "nPickUp": 1250
+  },
+  {
+    "hour": 5,
+    "nPickUp": 1281
+  },
+  {
+    "hour": 6,
+    "nPickUp": 2874
+  },
+  {
+    "hour": 7,
+    "nPickUp": 525
+  },
+  {
+    "hour": 8,
+    "nPickUp": 6449
+  },
+  {
+    "hour": 9,
+    "nPickUp": 6462
+  },
+  {
+    "hour": 10,
+    "nPickUp": 5893
+  },
+  {
+    "hour": 11,
+    "nPickUp": 5847
+  },
+  {
+    "hour": 12,
+    "nPickUp": 5977
+  },
+  {
+    "hour": 13,
+    "nPickUp": 5783
+  },
+  {
+    "hour": 14,
+    "nPickUp": 6258
+  },
+  {
+    "hour": 15,
+    "nPickUp": 5565
+  },
+  {
+    "hour": 16,
+    "nPickUp": 4535
+  },
+  {
+    "hour": 17,
+    "nPickUp": 5648
+  },
+  {
+    "hour": 18,
+    "nPickUp": 7388
+  },
+  {
+    "hour": 19,
+    "nPickUp": 8263
+  },
+  {
+    "hour": 20,
+    "nPickUp": 7813
+  },
+  {
+    "hour": 21,
+    "nPickUp": 7706
+  },
+  {
+    "hour": 22,
+    "nPickUp": 7874
+  },
+  {
+    "hour": 23,
+    "nPickUp": 7886
+  }
+]
+,"SATURDAY":
+	[
+	  {
+		"hour": 0,
+		"nPickUp": 7313
+	  },
+	  {
+		"hour": 1,
+		"nPickUp": 6265
+	  },
+	  {
+		"hour": 2,
+		"nPickUp": 5172
+	  },
+	  {
+		"hour": 3,
+		"nPickUp": 3867
+	  },
+	  {
+		"hour": 4,
+		"nPickUp": 2437
+	  },
+	  {
+		"hour": 5,
+		"nPickUp": 1218
+	  },
+	  {
+		"hour": 6,
+		"nPickUp": 1319
+	  },
+	  {
+		"hour": 7,
+		"nPickUp": 1959
+	  },
+	  {
+		"hour": 8,
+		"nPickUp": 2890
+	  },
+	  {
+		"hour": 9,
+		"nPickUp": 4147
+	  },
+	  {
+		"hour": 10,
+		"nPickUp": 5145
+	  },
+	  {
+		"hour": 11,
+		"nPickUp": 5761
+	  },
+	  {
+		"hour": 12,
+		"nPickUp": 6307
+	  },
+	  {
+		"hour": 13,
+		"nPickUp": 6348
+	  },
+	  {
+		"hour": 14,
+		"nPickUp": 6101
+	  },
+	  {
+		"hour": 15,
+		"nPickUp": 6071
+	  },
+	  {
+		"hour": 16,
+		"nPickUp": 5161
+	  },
+	  {
+		"hour": 17,
+		"nPickUp": 6050
+	  },
+	  {
+		"hour": 18,
+		"nPickUp": 7278
+	  },
+	  {
+		"hour": 19,
+		"nPickUp": 7785
+	  },
+	  {
+		"hour": 20,
+		"nPickUp": 7091
+	  },
+	  {
+		"hour": 21,
+		"nPickUp": 6996
+	  },
+	  {
+		"hour": 22,
+		"nPickUp": 7611
+	  },
+	  {
+		"hour": 23,
+		"nPickUp": 7854
+	  }
+	]
+
+,"SUNDAY":
+[
+  {
+    "hour": 0,
+    "nPickUp": 7585
+  },
+  {
+    "hour": 1,
+    "nPickUp": 6876
+  },
+  {
+    "hour": 2,
+    "nPickUp": 5755
+  },
+  {
+    "hour": 3,
+    "nPickUp": 4513
+  },
+  {
+    "hour": 4,
+    "nPickUp": 2913
+  },
+  {
+    "hour": 5,
+    "nPickUp": 1379
+  },
+  {
+    "hour": 6,
+    "nPickUp": 1245
+  },
+  {
+    "hour": 7,
+    "nPickUp": 1417
+  },
+  {
+    "hour": 8,
+    "nPickUp": 2229
+  },
+  {
+    "hour": 9,
+    "nPickUp": 3342
+  },
+  {
+    "hour": 10,
+    "nPickUp": 4552
+  },
+  {
+    "hour": 11,
+    "nPickUp": 5413
+  },
+  {
+    "hour": 12,
+    "nPickUp": 5969
+  },
+  {
+    "hour": 13,
+    "nPickUp": 5841
+  },
+  {
+    "hour": 14,
+    "nPickUp": 5997
+  },
+  {
+    "hour": 15,
+    "nPickUp": 5621
+  },
+  {
+    "hour": 16,
+    "nPickUp": 5060
+  },
+  {
+    "hour": 17,
+    "nPickUp": 5588
+  },
+  {
+    "hour": 18,
+    "nPickUp": 6065
+  },
+  {
+    "hour": 19,
+    "nPickUp": 5757
+  },
+  {
+    "hour": 20,
+    "nPickUp": 5215
+  },
+  {
+    "hour": 21,
+    "nPickUp": 5012
+  },
+  {
+    "hour": 22,
+    "nPickUp": 4837
+  },
+  {
+    "hour": 23,
+    "nPickUp": 3791
+  }
+]
+}
