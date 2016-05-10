@@ -315,12 +315,16 @@
 			</form>
 		</div>
 		
+<<<<<<< HEAD
 		
 	<h2 id = "subtitle">Timeline of the taxi-pickups on a usual Wednesday</h2>
 	 <p class="description"> How would the city look like if it was drawn only by small dots, each one corresponding ? </br>
 	 Below is a visualization of the taxi pickups in the city at any hour of a normal Wednesday. By hovering the timeline on the left, you can see how the city lights on  
 	 
 		
+=======
+	<h2>Evolution of pick up locations during the day<h2/>
+>>>>>>> origin/gh-pages
 		
      <div id="container">
     	
@@ -1117,16 +1121,107 @@
     		document.getElementById('im22').style.visibility = 'hidden';
     		document.getElementById('im23').style.visibility = 'visible';
     		
-		}
-
-
-
-		
+		}	
 
 		</script>
-     </div>		
+     </div>	
+
+<<<<<<< HEAD
+
+=======
+	<h2>Destinations from given pick-ups locations<h2/>
+>>>>>>> origin/gh-pages
 		
+	<script type="text/javascript">
 		
+			
+		
+			//Width and height
+			var w3 = 500;
+			var h3 = 500;
+			//Define map projection
+			var projection = d3.geo.mercator()
+								.center([-73.94, 40.70])
+								.scale(50000)
+								.translate([w3 / 2, h3 / 2]);
+			//Define path generator
+			var path = d3.geo.path()
+							 .projection(projection);
+			//Create SVG element
+			var svg3 = d3.select("body")
+						.append("svg")
+						.attr("width", w3)
+						.attr("height", h3);
+			//Load in GeoJSON data
+			d3.json("SchoolDistricts.json", function(json) {
+				
+			//Bind data and create one path per GeoJSON feature
+			svg3.selectAll("path")
+			   .data(json.features)
+			   .enter()
+			   .append("path")
+			   .attr("d", path)
+			   .style("fill", "white")
+			   .style("stroke", "black")
+			 
+			function init(){
+				drawMap(-73.985655, 40.74844, "Drop_empire.csv"); 
+				drawMap(-74.014383, 40.714897, "Drop_Sachs.csv"); 
+				drawMap(-73.985131, 40.758895, "Drop_Time_Square.csv"); 
+				drawMap(-73.977229, 40.752726, "Drop_Station.csv"); 
+			}
+			
+			init();
+			
+			function drawMap(lon_center, lat_center, fileName){
+								
+				svg3.append("circle")
+					   .attr("cx", function(d) {
+						   return projection([lon_center, lat_center])[0];
+					   })
+					   .attr("cy", function(d) {
+						   return projection([lon_center, lat_center])[1];
+					   })
+					   .attr("r", 5)
+						.attr("fill", "red")
+						.on("mouseenter", function(){
+							d3.csv(fileName, function(data) {				
+								svg3.selectAll("circle")
+								   .data(data)
+								   .enter()
+								   .append("circle")
+								   .attr("cx", function(d) {
+									   return projection([d.LON, d.LAT])[0];
+								   })
+								   .attr("cy", function(d) {
+									   return projection([d.LON, d.LAT])[1];
+								   })
+								   .attr("r", 2)
+									.attr("fill", "blue");
+								
+								
+								svg3.append("circle")
+								   .attr("cx", function(d) {
+									   return projection([lon_center, lat_center])[0];
+								   })
+								   .attr("cy", function(d) {
+									   return projection([lon_center, lat_center])[1];
+								   })
+								   .attr("r", 5)
+									.attr("fill", "red")
+									.on("mouseleave",function(){
+										svg3.selectAll("circle").remove();
+										init();
+
+								});
+							});
+						})
+						
+			}			
+				
+				
+			});						
+		</script>
 
   </body>
 </html>
