@@ -32,3 +32,51 @@ svg{
     margin: auto;
 }
 
+#container {
+
+position:relative;
+width:500px;
+height:400px;
+top:50px;
+}
+
+#h00 {
+
+position:relative;
+height:4.1666%;
+width:10%;
+background-color:yellow;
+
+}
+
+#h01 {
+
+position:relative;
+height:4.1666%;
+width:10%;
+background-color:black;
+color:white;
+}
+
+
+
+.frise p {
+
+text-align:center;
+font-family:Digital-7;
+padding:0px;
+margin:0px;
+border:0px;
+
+}
+
+
+img {
+
+position: absolute;
+top:0px;
+left:11%;
+height=300px;
+
+}
+
