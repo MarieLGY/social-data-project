@@ -24,9 +24,17 @@
 		</style>
   </head>
   <body>
+  
+	<img src = "images_pickup/background.png" style="visibility:visible" id = "background_image" >
+    </br></br></br>
+    
+    <h2 id = "subtitle">Introduction</h2>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	</br></br>
 	
 	<h2 id = "subtitle">Evolution of the hourly demand over the week</h2>
-	<p id="text2C"> This chart presents how many pick-ups have been recorded, hour per hour, for each day of the week. The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people are going to work. Then, in the evening after 5pm, the demand is really high, before gettinf low again when everybody goes to bed. This is why we can really distinguish the week-ends: on friday and saturday nights, the number of pick-ups is still really high bacause people are going out and might not have public transportation to go home when it's late. Moreover, on saturday and sunday morning the affluence is lower than usual, because few people are working while many are probably sleeping late. </p>
+	<p class="description"> This chart presents how many pick-ups have been recorded, hour per hour, for each day of the week. The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people are going to work. Then, in the evening after 5pm, the demand is really high, before gettinf low again when everybody goes to bed. This is why we can really distinguish the week-ends: on friday and saturday nights, the number of pick-ups is still really high bacause people are going out and might not have public transportation to go home when it's late. Moreover, on saturday and sunday morning the affluence is lower than usual, because few people are working while many are probably sleeping late. </p>
 	</br></br>
 
 		<script type="text/javascript">
@@ -298,7 +306,7 @@
 			<select name="box1" onChange="choice(this.form)">
 			<option selected>MONDAY</option>
 			<option >TUESDAY</option>
-			<option>WENESDAY</option>
+			<option>WEDNESDAY</option>
 			<option >THURSDAY</option>
 			<option>FRIDAY</option>
 			<option>SATURDAY</option>
@@ -306,6 +314,13 @@
 			</select>
 			</form>
 		</div>
+		
+		
+	<h2 id = "subtitle">Timeline of the taxi-pickups on a usual Wednesday</h2>
+	 <p class="description"> How would the city look like if it was drawn only by small dots, each one corresponding ? </br>
+	 Below is a visualization of the taxi pickups in the city at any hour of a normal Wednesday. By hovering the timeline on the left, you can see how the city lights on  
+	 
+		
 		
      <div id="container">
     	
@@ -1103,6 +1118,7 @@
     		document.getElementById('im23').style.visibility = 'visible';
     		
 		}
+
 
 
 		
