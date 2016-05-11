@@ -29,7 +29,7 @@
     </br></br></br>
     
     <h2 id = "subtitle">Introduction</h2>
-    <p class="description">The Yellow Cabs are one of New-York's most known symbols. Hundreds of thousands of taxi trips are made each day, from Harlem to the Queens, from Manhattan to JFK Airport, etc. The characteristics of each trip are saved in a database, that the city make public on its website.
+    <p class="description">The Yellow Cabs are one of New-York's most known symbols. Hundreds of thousands of taxi trips are made each day, from Harlem to the Queens, from Manhattan to JFK Airport, etc. The characteristics of each trip are saved in a database, that the city makes public on its website.
     </br></br>What can this huge amount of data tell about the city, its inhabitants, its airports, its working life and night life ?
     </br></br>To answer these questions, we have studied a dataset of all the taxi trips in New-York in 2013, containing precise date and location for all pick-ups and drop-offs, the price of the race and even the amount of tips given by the customer. Because the dataset was too big for the capacities of our computers, we decided to focus on a little and random chosen fraction (1/200) of the original dataset, which still left us with about 800.000 rows to play with.
 	</br></br>Enjoy reading !<p>
@@ -37,7 +37,7 @@
 	</br></br>
 	
 	<h2 id = "subtitle">Evolution of the hourly demand over the week</h2>
-	<p class="description"> This chart presents how many pick-ups have been recorded, hour per hour, for each day of the week. The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people are going to work. Then, in the evening after 5pm, the demand is really high, before gettinf low again when everybody goes to bed. This is why we can really distinguish the week-ends: on friday and saturday nights, the number of pick-ups is still really high bacause people are going out and might not have public transportation to go home when it's late. Moreover, on saturday and sunday morning the affluence is lower than usual, because few people are working while many are probably sleeping late. </p>
+	<p class="description"> At what time of the day do people take cabs ? Is there an evolution from one day to another ? The following chart presents how many pick-ups have been recorded, hour per hour, for each day of the week in 2013 (in our reduced dataset).</p>
 	</br></br>
 
 		<script type="text/javascript">
@@ -317,11 +317,15 @@
 			</select>
 			</form>
 		</div>
-		
+		</br>
+		<p class="description">The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people are going to work. Then, in the evening after 5pm, the demand is really high, before getting low again when everybody goes to bed.
+		</br></br>This is why we can really distinguish the week-ends: on Friday and Saturday nights, the number of pick-ups is still really high bacause people are going out and might not have public transportation to go home when it's late. And on Saturday and Sunday morning the affluence is lower than usual, because few people are working while many are probably sleeping late.</p>
+		</br>
 		
 	<h2 id = "subtitle">Timeline of the taxi-pickups on a usual Wednesday</h2>
 	 <p class="description"> At the top of the page, a picture shows how taxi pick-up plots give the shape of the city.
-	 The following visualization shows where taxi pickups occur, hour after hour, on a usual wednesday. Images appear when hovering the corresponding cell on the timeline. </br>
+	 The following visualization shows where taxi pickups occur, hour after hour, on a usual Wednesday. Images appear when hovering the corresponding cell on the timeline.
+	 </br></br>Due to relatively high loading time of the data, these images are in PNG format, but here is a link the load the D3 visualizations.
 	   </p>
 	 
 	</br></br>
@@ -1131,7 +1135,9 @@
 	<li>from 1 a.m to 5 a.m: the city sleeps.</li>
 	<li>5a.m: First pick-ups at JFK Airport (South-East of the map). The first pick-ups at LaGuardia Airport (East) occur at 7 a.m.</li>
 	<li>from 6 a.m to 9 a.m: The city wakes up, Southern Manhattan is much brighter than the rest.</li>
-	<li>from 10 a.m to 
+	<li>from 10 a.m to 5 pm, the activity is high and constant everywhere in the city. </li>
+	<li>6pm: Intensification of the trafic due to the end of the work day. </li>
+	<li>end of the day: decrease of the activity on Manhattan but not on Brooklyn, which suggests an active night life over there. </li> 
 	
 	
 	</ul>
