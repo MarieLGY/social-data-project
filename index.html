@@ -1175,19 +1175,19 @@
 			   .enter()
 			   .append("path")
 			   .attr("d", path)
-			   .style("fill", "white")
+			   .style("fill", d3.rgb(180,180,180))
 			   .style("stroke", "black")
-			 
+
 			function init(){
-				drawMap(-73.985655, 40.74844, "Drop_empire.csv"); 
-				drawMap(-74.014383, 40.714897, "Drop_Sachs.csv"); 
-				drawMap(-73.985131, 40.758895, "Drop_Time_Square.csv"); 
-				drawMap(-73.977229, 40.752726, "Drop_Station.csv"); 
+				drawMap(-73.985655, 40.74844, "Drop_empire.csv", "Empire State Building"); 
+				drawMap(-74.014383, 40.714897, "Drop_Sachs.csv", "Goldman Sachs"); 
+				drawMap(-73.985131, 40.758895, "Drop_Time_Square.csv", "Time Square"); 
+				drawMap(-73.977229, 40.752726, "Drop_Station.csv", "Central Station"); 
 			}
 			
 			init();
 			
-			function drawMap(lon_center, lat_center, fileName){
+			function drawMap(lon_center, lat_center, fileName, location){
 								
 				svg3.append("circle")
 					   .attr("cx", function(d) {
@@ -1196,9 +1196,9 @@
 					   .attr("cy", function(d) {
 						   return projection([lon_center, lat_center])[1];
 					   })
-					   .attr("r", 5)
-						.attr("fill", "red")
-						.on("mouseenter", function(){
+					   .attr("r", 4)
+						.attr("fill", d3.rgb(0,102,102))
+						.on("mouseover", function(){
 							d3.csv(fileName, function(data) {				
 								svg3.selectAll("circle")
 								   .data(data)
@@ -1211,8 +1211,12 @@
 									   return projection([d.LON, d.LAT])[1];
 								   })
 								   .attr("r", 2)
-									.attr("fill", "blue");
-								
+									.attr("fill", d3.rgb(255,128,0));
+									
+								svg3.append('text')
+									.text(location)
+									.attr('x', projection([lon_center, lat_center])[0] - location.length*9)
+									.attr('y', projection([lon_center, lat_center])[1]);
 								
 								svg3.append("circle")
 								   .attr("cx", function(d) {
@@ -1221,10 +1225,11 @@
 								   .attr("cy", function(d) {
 									   return projection([lon_center, lat_center])[1];
 								   })
-								   .attr("r", 5)
-									.attr("fill", "red")
-									.on("mouseleave",function(){
+								   .attr("r", 4)
+									.attr("fill", d3.rgb(0,102,102))
+									.on("mouseout",function(){
 										svg3.selectAll("circle").remove();
+										svg3.selectAll("text").remove();
 										init();
 
 								});
