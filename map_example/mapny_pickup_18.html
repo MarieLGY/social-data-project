@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="mapny_pickup_18.css"/>
+      <title>D3 Page Template</title>
+      <script type="text/javascript" src="../d3/d3.js"></script>
+
+		
+  </head>
+  <body>
+  <script type="text/javascript">
+		
+			//Width and height
+			var w3 = 1000;
+			var h3 = 1000;
+			//Define map projection
+			var projection = d3.geo.mercator()
+								.center([-73.94, 40.70])
+								.scale(100000)
+								.translate([w3 / 2, h3 / 2]);
+			//Define path generator
+			var path = d3.geo.path()
+							 .projection(projection);
+			//Create SVG element
+			var svg3 = d3.select("body")
+						.append("svg")
+						.attr("width", w3)
+						.attr("height", h3);
+			//Load in GeoJSON data
+			d3.json("SchoolDistricts.json", function(json) {
+				
+				//Bind data and create one path per GeoJSON feature
+				svg3.selectAll("path")
+				   .data(json.features)
+				   .enter()
+				   .append("path")
+				   .attr("d", path)
+				   .style("fill", "transparent");				
+				
+			});
+	
+			
+			//Dots
+			
+			d3.csv("data/nyc_data_monday_18.csv", function(data) {
+        	        svg3.selectAll("circle")
+           				.data(data)
+           				.enter()
+           				.append("circle")
+           				.attr("cx", function(d) {
+                   				return projection([d.pickup_longitude, d.pickup_latitude])[0];
+           				})
+           				.attr("cy", function(d) {
+                   				return projection([d.pickup_longitude, d.pickup_latitude])[1];
+           				})
+           				.attr("r", 0.3)
+           				.style("fill", "white")
+           				.style("opacity", 1);
+           				
+							});
+			
+			
+			var time = svg3.append("g")
+  				.attr("class", "time")
+  				.attr("x", w3 - 65)
+  				.attr("y", 25)
+  				.attr("height", 100)
+  				.attr("width", 100);	
+  				
+  			time.append("text")
+  				.attr("x", (7/10)*w3)
+  				.attr("y", (2/10)*h3)
+  				.text("18:00")
+  				.attr("font-size", "30px")
+  				.attr("font-family","Digital-7")
+  				.style("fill","white");			
+			
+			
+		</script>
+     
+     
+  </body>
+</html>
