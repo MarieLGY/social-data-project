@@ -31,7 +31,7 @@
     <h2 id = "subtitle">Introduction</h2>
     <p class="description">The Yellow Cabs are one of New-York's most known symbols. Hundreds of thousands of taxi trips are made each day, from Harlem to the Queens, from Manhattan to JFK Airport, etc. The characteristics of each trip are saved in a database, that the city makes public on its website.
     </br></br>What can this huge amount of data tell about the city, its inhabitants, its airports, its working life and night life ?
-    </br></br>To answer these questions, we have studied a dataset of all the taxi trips in New-York in 2013, containing precise date and location for all pick-ups and drop-offs, the price of the race and even the amount of tips given by the customer. Because the dataset was too big for the capacities of our computers, we decided to focus on a little and random chosen fraction (1/200) of the original dataset, which still left us with about 800.000 rows to play with.
+    </br></br>To answer these questions, we have studied a dataset of all the taxi trips in New-York in 2013, containing precise date and location for all pick-ups and drop-offs, the price of the race and even the amount of tips given by the customer. Because the dataset was too big for the capacities of our computers, we decided to focus on a little and random chosen fraction (1/200) of the original dataset, which still left us with about 800.000 rows to play with. The original dataset can be downloaded <a href="https://nycopendata.socrata.com/view/7rnv-m532">here</a>, while the reduced one we worked with is accessible <a href="https://raw.githubusercontent.com/ipython-books/minibook-2nd-data/master/nyc_taxi.zip">here</a>.
 	</br></br>Enjoy reading !<p>
 	
 	</br></br>
@@ -1144,19 +1144,27 @@
 	</p>
 	</br></br>
 	
-	<h2>Destinations from given pick-ups locations<h2/>
+	<h2>Destinations from given pick-ups locations</h2>
+	
+	<p class="description"> 
+	<ul class="description"> 
+	On the following maps, several pick up points are represented. They have been chosen because they represent major points of interest in the city (for example the Empire State building), or because they are central points in more residential areas that are a bit far from Manhattan. 
+	<br/><br/>
+	When the mouse is over one of those points, all the drop-off points that have been reached for the chosen pick-up points will appear. There can be a really short delay if the internet connexion is a bit slow, so it is advised to keep your mouse on the chosen point until the data appears if you notice that the animation is lagging.
+	</ul>
+	</p>
 		
 	<script type="text/javascript">
 		
 			
 		
 			//Width and height
-			var w3 = 500;
-			var h3 = 500;
+			var w3 = 700;
+			var h3 = 700;
 			//Define map projection
 			var projection = d3.geo.mercator()
 								.center([-73.94, 40.70])
-								.scale(50000)
+								.scale(70000)
 								.translate([w3 / 2, h3 / 2]);
 			//Define path generator
 			var path = d3.geo.path()
@@ -1175,7 +1183,7 @@
 			   .enter()
 			   .append("path")
 			   .attr("d", path)
-			   .style("fill", d3.rgb(180,180,180))
+			   .style("fill", d3.rgb(255,255,204))
 			   .style("stroke", "black")
 
 			function init(){
@@ -1202,7 +1210,7 @@
 						   return projection([lon_center, lat_center])[1];
 					   })
 					   .attr("r", 4)
-						.attr("fill", d3.rgb(0,102,102))
+						.attr("fill", d3.rgb(204,0,0))
 						.on("mouseover", function(){
 							d3.csv(fileName, function(data) {				
 								svg3.selectAll("circle")
@@ -1218,6 +1226,14 @@
 								   .attr("r", 2)
 									.attr("fill", d3.rgb(255,128,0));
 									
+								var rectangle = svg3.append("rect")
+								   .attr("x", projection([lon_center, lat_center])[0] - location.length*10)
+								   .attr("y", projection([lon_center, lat_center])[1] - 18)
+								   .attr("width", location.length*9)
+								   .attr("height", 25)
+								   .style('fill','white')
+								   .style('stroke','black');
+									
 								svg3.append('text')
 									.text(location)
 									.attr('x', projection([lon_center, lat_center])[0] - location.length*9)
@@ -1231,10 +1247,11 @@
 									   return projection([lon_center, lat_center])[1];
 								   })
 								   .attr("r", 4)
-									.attr("fill", d3.rgb(0,102,102))
+									.attr("fill", d3.rgb(204,0,0))
 									.on("mouseout",function(){
 										svg3.selectAll("circle").remove();
 										svg3.selectAll("text").remove();
+										svg3.selectAll("rect").remove();
 										init();
 
 								});
@@ -1246,6 +1263,51 @@
 				
 			});						
 		</script>
+		
+		<div>
+		<h2 id = "subtitle">Predictions of tips given by client</h2>
+		<p class="description"> One of the machine learning we had decided to solve was to predict the amount of the tip that a client is likely to give based on some information about the trip. We have try to use different input parameters for our model, and different models. Unfortunately, this is not the kind of study that could really give interesting visualization. However, we have decided to present here the results of our study, which is the R<SUP>2</SUP> score of our models, for the different models, and the different sets of input parameters.</p>
+		<p class="description"> The study focuses on predicting if a tip is low, medium-low, medium-high, or high. More details are available in our explainer notebook for those who are interested.
+		<br/><br/>
+		We have:
+		<ul class="description">
+		<li><b>Set 1 = </b>{number of passengers, trip duration, trip distance, amount without tips}</li>
+		<li><b>Set 2 = </b>set1 + {day of week, hour of day}</li>
+		<li><b>Set 3 = </b>set2 + {pick-up location, drop-off location}</li></ul></p>
+		<table class="description">
+			<tr></tr>
+				<td></td>
+				<td><b>Logistic regression</b></td>
+				<td><b>Decision Tree</b></td>
+				<td><b>Random Forest</b></td>
+			</tr>
+			<tr></tr>
+				<td><b>Set1</b></td>
+				<td>58,2%</td>
+				<td>59,2%</td>
+				<td>63,0%</td>
+			</tr>
+			<tr></tr>
+				<td><b>Set2</b></td>
+				<td>58,3%</td>
+				<td>56,2%</td>
+				<td>63,4%</td>
+			</tr>
+			<tr></tr>
+				<td><b>Set3</b></td>
+				<td>58,0%</td>
+				<td>56,3%</td>
+				<td>67,1%</td>
+			</tr>
+		</table>
+		
+		<p class="description">
+		After comparing the different techniques and the different attributes that could be taken into account, it looks like the best we can achieve is 67% with a random forest classifier taking into account all the attributes we have.
+		<br/><br/>
+		This is not bad, and it might not be possible to improve more because we would need data that we don't have access to: the amount of the tip might depend a lot on the client's social background such as his age, his profession, his marital status, his profession...
+		</p>
+		</div>
+		
 
   </body>
 </html>
