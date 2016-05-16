@@ -77,7 +77,24 @@ background-color:black;
 color:white;
 }
 
+.indicator {
 
+position:absolute;
+left:-100px;
+height:10%;
+width:21%;
+background-color:blue;
+color:white;
+line-height:15px;
+text-align:center;
+
+}
+
+.text_indicator {
+
+margin-top:6px;
+
+}
 
 .frise p {
 
