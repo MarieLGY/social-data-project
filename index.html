@@ -692,18 +692,19 @@
 				mapLink = 
 					'<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
-				L.tileLayer(
-					'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-					attribution: '&copy; ' + mapLink + ' Contributors',
-					maxZoom: 18,
+				L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+					subdomains: 'abcd',
+					maxZoom: 19
 				}).addTo(mapknn);
-				
+
+
 				var heat = L.heatLayer(knn1,{
-					radius: 20,
-					blur: 5, 
-					maxZoom: 17,
-					max: 12
-				}).addTo(mapknn);
+		            radius: 3,
+		            blur: 1, 
+		            maxZoom: 17,
+		            //max: 12.
+		        }).addTo(mapknn);
 
 				function drawKnn1(){
 					heat.setLatLngs(knn1);
@@ -717,12 +718,13 @@
 					heat.setLatLngs(knn5);
 				}
 			</script>
+		
 		</div>
-
+		<br/><br/><br/><br/>
 		<button onclick="drawKnn1()">K = 1</button>
 		<button onclick="drawKnn3()">K = 3</button>
 		<button onclick="drawKnn5()">K = 5</button>
-		
+
 
   </body>
 </html>
