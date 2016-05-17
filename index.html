@@ -712,28 +712,39 @@
 		            maxZoom: 17,
 		        }).addTo(mapknn);
 
-				//Change the heat layer with the new dataset
+
+				//Change the heat layer with the new dataset and the text below the map
 				function drawKnn1(){
 					heat.setLatLngs(knn1);
+					document.getElementById('textknn').innerHTML = "Map for K = 1";
 				}
 
 				function drawKnn3(){
 					heat.setLatLngs(knn3);
+					document.getElementById('textknn').innerHTML = "Map for K = 3";
 				}
 
 				function drawKnn5(){
 					heat.setLatLngs(knn5);
+					document.getElementById('textknn').innerHTML = "Map for K = 5";
 				}
 			</script>
 		
 		</div>
-		<br/><br/>
+		
 		<div style="text-align:center;">
+			<p id="textknn">Map for K = 1</p>
+			</br>
 			<button onclick="drawKnn1()">K = 1</button>
 			<button onclick="drawKnn3()">K = 3</button>
 			<button onclick="drawKnn5()">K = 5</button>
 		</div>
 		<br/><br/>
 
+
+		<h2 id = "subtitle">Conclusion</h2>
+		<p class="description">
+
+		</p>
   </body>
 </html>
