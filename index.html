@@ -653,10 +653,14 @@
 		</div>
 
 
-		<h2 id = "subtitle">Travel time</h2>
+		<h2 id = "subtitle">Travel time from JFK airport</h2>
 
 		<p class="description">
-		Blablabla
+		The last analysis tries to predict the time of a trip from JFK airport to any place of NYC. A first selection of the pickups at the ariport has been done, and the dropoff points were categorized by 5-minute intervals.
+		<br/><br/>
+		Then, a regular grid on the four central boroughs was calculated, with a precision of roughly 100 meters. Finally a prediction of the travel time has been given for each point of the grid with a KNN classifier.
+		<br/><br/>
+		Below, the map shows this prediction. The brighter the point is, the longer the trip (the brightest points reprent travel times over 1 hour). One can zoom and browse the map. Three KNN classifiers proceesed the grid, with K = 1, 3, and 5. The different maps can be displayed by clicking on the corresponding button.	
 		</p>
 		
 		<div id="mapknn" style="width: 600px; height: 400px"></div>
