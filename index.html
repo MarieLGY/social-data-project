@@ -653,10 +653,14 @@
 		</div>
 
 
-		<h2 id = "subtitle">Heatmap</h2>
+		<h2 id = "subtitle">Travel time from JFK airport</h2>
 
 		<p class="description">
-		Blablabla
+		The last analysis tries to predict the time of a trip from JFK airport to any place of NYC. A first selection of the pickups at the ariport has been done, and the dropoff points were categorized by 5-minute intervals.
+		<br/><br/>
+		Then, a regular grid on the four central boroughs was calculated, with a precision of roughly 100 meters. Finally a prediction of the travel time has been given for each point of the grid with a KNN classifier.
+		<br/><br/>
+		Below, the map shows this prediction. The brighter the point is, the longer the trip (the brightest points reprent travel times over 1 hour). One can zoom and browse the map. Three KNN classifiers proceesed the grid, with K = 1, 3, and 5. The different maps can be displayed by clicking on the corresponding button.	
 		</p>
 		
 		<div id="mapknn" style="width: 600px; height: 400px"></div>
@@ -665,7 +669,7 @@
 			<script src="./leaflet/leaflet-heat.js"></script>
 
 			<script type="text/javascript">
-				
+				//Simple request to read data
 				function ReadTextFile(file)
 				{
 					var rawFile = new XMLHttpRequest();
@@ -689,34 +693,40 @@
 				var knn3 = JSON.parse(ReadTextFile("./notebooks/JFK_KNN3.txt"));
 				var knn5 = JSON.parse(ReadTextFile("./notebooks/JFK_KNN5.txt"));
 
+				//Set an empty map centered on NYC
 				var mapknn = L.map('mapknn').setView([40.71,-73.97], 10);
-				mapLink = 
-					'<a href="http://openstreetmap.org">OpenStreetMap</a>';
+				mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
+
+				//Add the black map layer
 				L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
 					maxZoom: 19
 				}).addTo(mapknn);
 
-
+				//Add the heat layer for K=1
 				var heat = L.heatLayer(knn1,{
 		            radius: 3,
 		            blur: 1, 
 		            maxZoom: 17,
-		            //max: 12.
 		        }).addTo(mapknn);
 
+
+				//Change the heat layer with the new dataset and the text below the map
 				function drawKnn1(){
 					heat.setLatLngs(knn1);
+					document.getElementById('textknn').innerHTML = "Map for K = 1";
 				}
 
 				function drawKnn3(){
 					heat.setLatLngs(knn3);
+					document.getElementById('textknn').innerHTML = "Map for K = 3";
 				}
 
 				function drawKnn5(){
 					heat.setLatLngs(knn5);
+					document.getElementById('textknn').innerHTML = "Map for K = 5";
 				}
 			</script>
 		
@@ -729,5 +739,12 @@
 		</div>
 
 
+
+		<h2 id = "subtitle">Conclusion</h2>
+		<p class="description">
+
+		</p>
+
+		<img src = "thankyou.png" style="visibility:visible" id = "background_image" >
   </body>
 </html>
