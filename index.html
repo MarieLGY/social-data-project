@@ -708,6 +708,9 @@
 					maxZoom: 19
 				}).addTo(mapknn);
 
+				var markerjfk = L.marker([40.6413,-73.7803]).addTo(mapknn);
+				markerjfk.bindPopup("JFK Airport").openPopup();
+
 				//Add the heat layer for K=1
 				var heat = L.heatLayer(knn1,{
 		            radius: 3,
@@ -741,7 +744,7 @@
 			<button onclick="drawKnn5()">K = 5</button>
 		</div>
 		<br/>
-		
+
 
 		<h2 id = "subtitle">Conclusion</h2>
 		<p class="description">
