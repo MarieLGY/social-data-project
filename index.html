@@ -31,15 +31,17 @@
     
     <h2 id = "subtitle">Introduction</h2>
     <p class="description">The Yellow Cabs are one of New-York's most known symbols. Hundreds of thousands of taxi trips are made each day, from Harlem to the Queens, from Manhattan to JFK Airport, etc. The characteristics of each trip are saved in a database, that the city makes public on its website.
-    </br></br>What can this huge amount of data tell about the city, its inhabitants, its airports, its working life and night life ?
-    </br></br>To answer these questions, we have studied a dataset of all the taxi trips in New-York in 2013, containing precise date and location for all pick-ups and drop-offs, the price of the race and even the amount of tips given by the customer. Because the dataset was too big for the capacities of our computers, we decided to focus on a little and random chosen fraction (1/200) of the original dataset, which still left us with about 800.000 rows to play with. The original dataset can be downloaded <a href="https://nycopendata.socrata.com/view/7rnv-m532">here</a>, while the reduced one we worked with is accessible <a href="https://raw.githubusercontent.com/ipython-books/minibook-2nd-data/master/nyc_taxi.zip">here</a>.
-	</br></br>Finally, for more detailed information about our work, an explainer notebook is avalilable <a href="https://nbviewer.jupyter.org/github/Mookinete/social-data-project/blob/gh-pages/notebooks/Explainer%20notebook_Marie.ipynb">here</a>.
+    </br></br>
+    What can this huge amount of data tell about the city, its inhabitants, its airports, its working life and night life ?
+    </br></br>
+    To answer these questions, a dataset of all the taxi trips in New-York in 2013 can be analysed, containing precise date and location for all pick-ups and drop-offs, the price of the race, and even the tips given by the customer. Because the dataset was too big for the capacities of regular computers, the original dataset was reduced to a little and random chosen fraction (1/200), which still left about 800.000 rows to play with. The original dataset can be downloaded <a href="https://nycopendata.socrata.com/view/7rnv-m532">here</a>, while the reduced one we worked with is accessible <a href="https://raw.githubusercontent.com/ipython-books/minibook-2nd-data/master/nyc_taxi.zip">here</a>.
+	</br></br>Finally, for more detailed information about the upstream process of the data, an explainer notebook is avalilable <a href="https://nbviewer.jupyter.org/github/Mookinete/social-data-project/blob/gh-pages/notebooks/Explainer%20notebook_Marie.ipynb">here</a>.
 	</br></br>Enjoy reading !<p>
 	
 	</br></br>
 	
 	<h2 id = "subtitle">Evolution of the hourly demand over the week</h2>
-	<p class="description"> At what time of the day do people take cabs ? Is there an evolution from one day to another ? The following chart presents how many pick-ups have been recorded, hour per hour, for each day of the week in 2013 (in our reduced dataset).</p>
+	<p class="description"> At what time of the day do people take cabs ? Is there an evolution from one day to another? The following chart presents how many pick-ups have been recorded, hour per hour, for each day of the week in 2013 (in the reduced dataset).</p>
 	</br></br>
 
 		<script type="text/javascript">
@@ -320,8 +322,9 @@
 			</form>
 		</div>
 		</br>
-		<p class="description">The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people are going to work. Then, in the evening after 5pm, the demand is really high, before getting low again when everybody goes to bed.
-		</br></br>This is why we can really distinguish the week-ends: on Friday and Saturday nights, the number of pick-ups is still really high bacause people are going out and might not have public transportation to go home when it's late. And on Saturday and Sunday morning the affluence is lower than usual, because few people are working while many are probably sleeping late.</p>
+		<p class="description">The pattern is always the same for the weekdays: the demand starts to get high around 7am, when people go to work. Then, in the evening after 5pm, the demand raises with the end of the day, before getting low again for the night.
+		</br></br>
+		However, the weekend distinguishes itself: on Friday and Saturday nights, the number of pick-ups is still really highwith people going out and they might not have public transportation to go home when it's late. And on Saturday and Sunday morning the affluence is lower than usual, as fewer people work while many are probably sleeping late.</p>
 		</br>
 		
 	<h2 id = "subtitle">Timeline of the taxi-pickups on a usual Wednesday</h2>
@@ -493,7 +496,7 @@
 	<ul class="description"> 
 	On the following maps, several pick up points are represented. They have been chosen because they represent major points of interest in the city (for example the Empire State building), or because they are central points in more residential areas that are a bit far from Manhattan. 
 	<br/><br/>
-	When the mouse is over one of those points, all the drop-off points that have been reached for the chosen pick-up points will appear. There can be a really short delay if the internet connexion is a bit slow, so it is advised to keep your mouse on the chosen point until the data appears if you notice that the animation is lagging.
+	When the mouse is over one of those points, all the drop-off points that have been reached for the chosen pick-up point will appear. There can be a really short delay if the internet connexion is a bit slow, so it is advised to keep your mouse on the chosen point until the data appears if you notice that the animation is lagging.
 	</ul>
 	</p>
 		
@@ -608,7 +611,7 @@
 		
 		<div>
 		<h2 id = "subtitle">Predictions of tips given by client</h2>
-		<p class="description"> One of the machine learning we had decided to solve was to predict the amount of the tip that a client is likely to give based on some information about the trip. We have try to use different input parameters for our model, and different models. Unfortunately, this is not the kind of study that could really give interesting visualization. However, we have decided to present here the results of our study, which is the R<SUP>2</SUP> score of our models, for the different models, and the different sets of input parameters.</p>
+		<p class="description"> One interesting way of using machine learning on this dataset is to predict the tip that a client is likely to give based on some information about the trip. Different input parameters were used, and different models were implemented. Unfortunately, this is not the kind of study that could really give interesting visualization. However, the results of the study are shown here, which is the R<SUP>2</SUP> score of each model, and for each set of input parameters.</p>
 		<p class="description"> The study focuses on predicting if a tip is low, medium-low, medium-high, or high. More details are available in our explainer notebook for those who are interested.
 		<br/><br/>
 		We have:
@@ -644,11 +647,11 @@
 		</table>
 		
 		<p class="description">
-		After comparing the different techniques and the different attributes that could be taken into account, it looks like the best we can achieve is 67% with a random forest classifier taking into account all the attributes we have. 
+		After comparing the different techniques and the different attributes that could be taken into account, it looks like the best score that can be reached is 67% with a random forest classifier taking into account all the attributes available. 
 		
-		Moreover, for the random forest classifier, we have checked which input parameters were the most important in the model: it seems like the trip duration the trip distance, and the amount of the trip without the tip, are the three more important features.
+		Moreover, for the random forest classifier, the input parameters with the greatest impact on the result can be identified: it seems like the trip duration the trip distance, and the amount of the trip without the tip, are the three most important features.
 		<br/><br/>
-		This is not bad, and it might not be possible to improve more because we would need data that we don't have access to: the amount of the tip might depend a lot on the client's social background such as his age, his profession, his marital status, his profession...
+		This is not bad, and it might not be possible to improve more because inaccessible data would be needed: the tip might depend a lot on the client's social background such as his age, his profession, his marital status, his profession...
 		</p>
 		</div>
 
@@ -658,9 +661,9 @@
 		<p class="description">
 		The last analysis tries to predict the time of a trip from JFK airport to any place of NYC. A first selection of the pickups at the ariport has been done, and the dropoff points were categorized by 5-minute intervals.
 		<br/><br/>
-		Then, a regular grid on the four central boroughs was calculated, with a precision of roughly 100 meters. Finally a prediction of the travel time has been given for each point of the grid with a KNN classifier.
+		Then, a regular grid on the four central boroughs was calculated, with a precision of roughly 100 meters. Finally a prediction of the travel time has been done for each point of the grid with a KNN classifier.
 		<br/><br/>
-		Below, the map shows this prediction. The brighter the point is, the longer the trip (the brightest points reprent travel times over 1 hour). One can zoom and browse the map. Three KNN classifiers proceesed the grid, with K = 1, 3, and 5. The different maps can be displayed by clicking on the corresponding button.	
+		Below, the map shows this prediction. The brighter the point is, the longer the trip (the brightest points represent travel times over 1 hour). One can zoom and browse the map. Three KNN classifiers processed the grid, with K = 1, 3, and 5. The different maps can be displayed by clicking on the corresponding button.	
 		</p>
 		
 		<div id="mapknn" style="width: 600px; height: 400px"></div>
