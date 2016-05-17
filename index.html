@@ -653,7 +653,7 @@
 		</div>
 
 
-		<h2 id = "subtitle">Heatmap</h2>
+		<h2 id = "subtitle">Travel time</h2>
 
 		<p class="description">
 		Blablabla
@@ -665,7 +665,7 @@
 			<script src="./leaflet/leaflet-heat.js"></script>
 
 			<script type="text/javascript">
-				
+				//Simple request to read data
 				function ReadTextFile(file)
 				{
 					var rawFile = new XMLHttpRequest();
@@ -689,24 +689,26 @@
 				var knn3 = JSON.parse(ReadTextFile("./notebooks/JFK_KNN3.txt"));
 				var knn5 = JSON.parse(ReadTextFile("./notebooks/JFK_KNN5.txt"));
 
+				//Set an empty map centered on NYC
 				var mapknn = L.map('mapknn').setView([40.71,-73.97], 10);
-				mapLink = 
-					'<a href="http://openstreetmap.org">OpenStreetMap</a>';
+				mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
+
+				//Add the black map layer
 				L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 					subdomains: 'abcd',
 					maxZoom: 19
 				}).addTo(mapknn);
 
-
+				//Add the heat layer for K=1
 				var heat = L.heatLayer(knn1,{
 		            radius: 3,
 		            blur: 1, 
 		            maxZoom: 17,
-		            //max: 12.
 		        }).addTo(mapknn);
 
+				//Change the heat layer with the new dataset
 				function drawKnn1(){
 					heat.setLatLngs(knn1);
 				}
@@ -721,11 +723,13 @@
 			</script>
 		
 		</div>
-		<br/><br/><br/><br/>
-		<button onclick="drawKnn1()">K = 1</button>
-		<button onclick="drawKnn3()">K = 3</button>
-		<button onclick="drawKnn5()">K = 5</button>
-
+		<br/><br/>
+		<div style="text-align:center;">
+			<button onclick="drawKnn1()">K = 1</button>
+			<button onclick="drawKnn3()">K = 3</button>
+			<button onclick="drawKnn5()">K = 5</button>
+		</div>
+		<br/><br/>
 
   </body>
 </html>
